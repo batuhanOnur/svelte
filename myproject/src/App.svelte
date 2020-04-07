@@ -1,4 +1,5 @@
 <script>
+import Modal from './Modal.svelte';
   // let firstName = "Batuhan";
   // let lastName = "Onur";
   // let beltColor = "black";
@@ -24,7 +25,22 @@
   const handleClick = (id) => {
      people = people.filter((person)=> person.id != id)
   }
+
+  let num = 3;
 </script>
+
+<Modal />
+
+{#if num > 20}
+<p> greater than 20</p>
+
+{:else if num > 5}
+<p> greater than 5</p>
+
+{:else}
+<p> not greater than 5</p>
+{/if}
+
 
 
 <main>
