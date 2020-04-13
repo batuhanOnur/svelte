@@ -29,18 +29,7 @@ import Modal from './Modal.svelte';
   let num = 3;
 </script>
 
-<Modal />
-
-{#if num > 20}
-<p> greater than 20</p>
-
-{:else if num > 5}
-<p> greater than 5</p>
-
-{:else}
-<p> not greater than 5</p>
-{/if}
-
+<Modal message="Prop value" isPromo={true}/>
 
 
 <main>
