@@ -1,5 +1,5 @@
 <script>
-export let message = 'default value';
+//export let message = 'default value';
 export let showModal = false;
 export let isPromo = false;
 </script>
@@ -8,7 +8,8 @@ export let isPromo = false;
 {#if showModal}
 <div class="backdrop" class:promo={isPromo} on:click|self>
  <div class="modal">
-  <p>{message}</p>
+  <slot></slot>
+  <slot name="title"></slot>
  </div>
 </div>
 {/if}

@@ -21,12 +21,25 @@ import Modal from './Modal.svelte';
   let num = 3;
 </script>
 
-<Modal message="Prop value" {showModal} on:click={toggleModal}/>
+<Modal message="Prop value" {showModal} on:click={toggleModal}>
+  <h3>Add a New Person</h3>
+  <form>
+
+   <input type="text" placeholder="name">
+   <input type="text" placeholder="belt colour">
+   <button> Add Person </button>
+
+  </form>
+
+  <div slot="title">
+    <h3>Add a New Person</h3>
+  </div>
+</Modal>
 
 
 <main>
  <!-- Loops -->
-  <button on:click|once={toggleModal}> OPEN MODAL</button>
+  <button on:click={toggleModal}> OPEN MODAL</button>
   {#each people as person (person.id)}
    <div>
      <h4>{person.name}</h4>
