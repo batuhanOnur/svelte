@@ -26,7 +26,7 @@ import Modal from './Modal.svelte';
 
 <main>
  <!-- Loops -->
-  <button on:click={toggleModal}> OPEN MODAL</button>
+  <button on:click|once={toggleModal}> OPEN MODAL</button>
   {#each people as person (person.id)}
    <div>
      <h4>{person.name}</h4>

@@ -6,7 +6,7 @@ export let isPromo = false;
 
 
 {#if showModal}
-<div class="backdrop" class:promo={isPromo} on:click>
+<div class="backdrop" class:promo={isPromo} on:click|self>
  <div class="modal">
   <p>{message}</p>
  </div>
