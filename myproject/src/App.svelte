@@ -1,19 +1,11 @@
 <script>
 import Modal from './Modal.svelte';
-  // let firstName = "Batuhan";
-  // let lastName = "Onur";
-  // let beltColor = "black";
   
-  // $: fullName = `${firstName} ${lastName}`;
-  // $: console.log(beltColor);
+  let showModal = false;
 
-  // const handleClick = () => {
-  //   beltColor = 'orange'
-  // }
-
-  // const handleInput = (e) => {
-  //   beltColor = e.target.value; 
-  // }
+  const toggleModal = () => {
+    showModal = !showModal;
+  }
 
   let people = [
     {name: 'yoshi', beltColor:'black', age:25, id:1},
@@ -29,11 +21,25 @@ import Modal from './Modal.svelte';
   let num = 3;
 </script>
 
-<Modal message="Prop value" isPromo={true}/>
+<Modal message="Prop value" {showModal} on:click={toggleModal}/>
 
 
 <main>
-  <!-- <h1>Hello {name}!</h1>
+ <!-- Loops -->
+  <button on:click={toggleModal}> OPEN MODAL</button>
+  {#each people as person (person.id)}
+   <div>
+     <h4>{person.name}</h4>
+     <p>{person.age} years old, {person.beltColor} belt.</p>
+     <button on:click={ ()=> handleClick(person.id) }>delete</button>
+   </div>
+   {:else}
+   <p> there are no people to show..</p>
+  {/each}
+
+
+
+   <!-- <h1>Hello {name}!</h1>
   <p style="color: {beltColor}">{beltColor} belt</p>
   <button on:click={handleClick}>update belt color</button>
   <!-- <input type="text" on:input={handleInput} value={beltColor}/>
@@ -47,17 +53,7 @@ import Modal from './Modal.svelte';
   <input type="text" bind:value={lastName}> 
   <input type="text" bind:value={beltColor}>  -->
   
-  <!-- Loops -->
-
-  {#each people as person (person.id)}
-   <div>
-     <h4>{person.name}</h4>
-     <p>{person.age} years old, {person.beltColor} belt.</p>
-     <button on:click={ ()=> handleClick(person.id) }>delete</button>
-   </div>
-   {:else}
-   <p> there are no people to show..</p>
-  {/each}
+  
   
 </main>
 
